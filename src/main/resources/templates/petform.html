@@ -7,25 +7,25 @@
 <body>
 <form action="#" th:action="@{/process}" th:object="${pet}" method="post">
 
-    // name, age, type, breed, colour, distinguishing features, contact number of owner
+    <!-- name, age, type, breed, colour, distinguishing features, contact number of owner-->
 
-    <input type="hidden" th:field="*{pet}" />
+    <input type="hidden" th:field="*{id}" />
     <label>Pet Name: </label><input type="text" th:field="*{name}" />
-    <span th:if="${#fields.hasErrors('name'}}" th:errors="*{name}"></span><br />
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br />
     <label>Age: </label><input type="text" th:field="*{age}" />
-    <span th:if="${#fields.hasErrors('age'}}" th:errors="*{age}"></span><br />
+    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span><br />
     <label>Type: </label><input type="text" th:field="*{type}" />
-    <span th:if="${#fields.hasErrors('type'}}" th:errors="*{type}"></span><br />
+    <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span><br />
     <label>Breed: </label><input type="text" th:field="*{breed}" />
-    <span th:if="${#fields.hasErrors('breed'}}" th:errors="*{breed}"></span><br />
+    <span th:if="${#fields.hasErrors('breed')}" th:errors="*{breed}"></span><br />
     <label>Colour: </label><input type="text" th:field="*{colour}" />
-    <span th:if="${#fields.hasErrors('colour'}}" th:errors="*{colour}"></span><br />
+    <span th:if="${#fields.hasErrors('colour')}" th:errors="*{colour}"></span><br />
     <label>Distinguishing Features(optional): </label><input type="text" th:field="*{distFeatures}" />
-    <span th:if="${#fields.hasErrors('distFeatures'}}" th:errors="*{distFeatures}"></span><br />
-    <label>Owner Contact: </label><input type="text" th:field="*{contactNum}" />
-    <span th:if="${#fields.hasErrors('contactNum'}}" th:errors="*{contactNum}"></span><br />
+    <span th:if="${#fields.hasErrors('distFeatures')}" th:errors="*{distFeatures}"></span><br />
+    <label>Owner Contact: </label><input type="text" th:field="*{contactNum}" placeholder="(XXX)XXX-XXXX" />
+    <span th:if="${#fields.hasErrors('contactNum')}" th:errors="*{contactNum}"></span><br />
     <label>Pet Status(Lost or Found): </label><input type="text" th:field="*{currStatus}" />
-    <span th:if="${#fields.hasErrors('currStatus'}}" th:errors="*{currStatus}"></span><br />
+    <span th:if="${#fields.hasErrors('currStatus')}" th:errors="*{currStatus}"></span><br />
     <br />
     <input type="submit" value="Submit" />
 </form>

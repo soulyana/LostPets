@@ -1,5 +1,7 @@
-package me.soulyana.lostpets;
+package me.soulyana.lostpets.Controller;
 
+import me.soulyana.lostpets.Models.Pet;
+import me.soulyana.lostpets.Repositories.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,12 @@ public class HomeController {
     PetRepository petRepository;
 
     @RequestMapping("/")
+    public String homePage()
+    {
+        return "index";
+    }
+
+    @RequestMapping("/list")
     public String listPets(Model model)
     {
         model.addAttribute("pets", petRepository.findAll());

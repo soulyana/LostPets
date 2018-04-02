@@ -1,4 +1,4 @@
-package me.soulyana.lostpets;
+package me.soulyana.lostpets.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -36,16 +37,21 @@ public class Pet {
     private String colour;
 
     @NotNull
-    @Size(min = 10)
     private String distFeatures;
 
     @NotNull
-    @Size(min = 10)
-    private int contactNum;
+    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+            message="{invalid.phonenumber}")
+
+    private String contactNum;
 
     @NotNull
     @Size(min = 4)
     private String currStatus;
+
+    public Pet() {
+
+    }
 
     public long getId() {
         return id;
@@ -103,11 +109,11 @@ public class Pet {
         this.distFeatures = distFeatures;
     }
 
-    public int getContactNum() {
+    public String getContactNum() {
         return contactNum;
     }
 
-    public void setContactNum(int contactNum) {
+    public void setContactNum(String contactNum) {
         this.contactNum = contactNum;
     }
 
